@@ -1,7 +1,7 @@
 const http = require('http');
 const url = require('url');
 
-let list = {};  // Use an object, not array
+let list = {};  
 
 const server = http.createServer((req, res) => {
   if(req.method ==='POST'){
@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     const username = query.username;
     const message = query.message || 'null';
 
-    if (username in list) {  // Use 'in' operator to check key existence
+    if (username in list) {  
       list[username] = message;
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(list));
